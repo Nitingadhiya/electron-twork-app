@@ -1,0 +1,45 @@
+{
+  "name": "master-electron",
+  "version": "1.0.1",
+  "description": "Master Electron Course Code",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "mac": "electron-builder -m",
+    "win": "electron-builder -w",
+    "build": "electron-builder -mwl",
+    "watch": "nodemon --exec 'electron .'",
+    "reset": "git reset --hard"
+  },
+  "build": {
+    "appId": "com.electron.twork",
+    "directories": {
+      "buildResources": "."
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": "dmg"
+    },
+    "win": {
+      "certificateFile": "private/electron-twork-app.p12",
+      "verifyUpdateCodeSignature": false
+    },
+    "linux": {
+      "category": "Network"
+    }
+  },
+  "repository": "https://github.com/stackacademytv/master-electron",
+  "keywords": [
+    "Electron",
+    "Master Electron",
+    "demo"
+  ],
+  "author": "GitHub, Nitingadhiya",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^5.0.10",
+    "electron-builder": "^22.3.2",
+    "nodemon": "^1.19.2"
+  },
+  "dependencies": {}
+}
