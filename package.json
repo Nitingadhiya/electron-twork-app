@@ -1,6 +1,6 @@
 {
   "name": "master-electron",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Master Electron Course Code",
   "main": "main.js",
   "scripts": {
@@ -18,14 +18,22 @@
     },
     "mac": {
       "category": "public.app-category.productivity",
-      "target": "dmg"
+      "publish": [
+        "github"
+      ]
     },
     "win": {
       "certificateFile": "private/electron-twork-app.p12",
-      "verifyUpdateCodeSignature": false
+      "verifyUpdateCodeSignature": false,
+      "publish": [
+        "github"
+      ]
     },
     "linux": {
-      "category": "Network"
+      "category": "Network",
+      "publish": [
+        "github"
+      ]
     }
   },
   "repository": "https://github.com/stackacademytv/master-electron",
