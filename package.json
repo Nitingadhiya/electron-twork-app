@@ -9,7 +9,8 @@
     "win": "electron-builder -w",
     "build": "electron-builder -mwl",
     "watch": "nodemon --exec 'electron .'",
-    "reset": "git reset --hard"
+    "reset": "git reset --hard",
+    "publish": "electron-builder build -mwl -p onTagOrDraft"
   },
   "build": {
     "appId": "com.electron.twork",
