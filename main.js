@@ -1,6 +1,6 @@
 // Modules
-const { app, BrowserWindow } = require("electron");
-
+const { app, BrowserWindow, Notification } = require("electron");
+const updater = require("./updater");
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
@@ -15,15 +15,28 @@ function createWindow() {
 
   // Load index.html into the new BrowserWindow
   mainWindow.loadFile("index.html");
+  //mainWindow.loadURL("https://app.twork.io/login");
 
   // Open DevTools - Remove for PRODUCTION!
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
 
-  //mainWindow.setProgressBar(0.25);
-  // setTimeout(
-  //   () => new Notification("Electron app", { body: "Some notification test" })
-  // );
+  //Add for PRODUCTION!
+  mainWindow.webContents.on("devtools-opened", () => {
+    mainWindow.webContents.closeDevTools();
+  });
 
+  setTimeout(updater.check, 2000);
+  global.mainWindow = mainWindow;
+
+  //Notification
+  setTimeout(() => {
+    const notification = new Notification({
+      title: "Twork",
+      body: "Welcome to Twork app"
+      //icon: `icon.png`
+    });
+    notification.show();
+  }, 2000);
   // Listen for window being closed
   mainWindow.on("closed", () => {
     mainWindow = null;
@@ -31,7 +44,11 @@ function createWindow() {
 }
 
 // Electron `app` is ready
-app.on("ready", createWindow);
+app.on("ready", () => {
+  createWindow();
+  // check for update after x seconds
+  // setTimeout(updater.check, 2000);
+});
 
 // Quit when all windows are closed - (Not macOS - Darwin)
 app.on("window-all-closed", () => {

@@ -1,6 +1,6 @@
 {
-  "name": "master-electron",
-  "version": "1.0.0",
+  "name": "Twork",
+  "version": "1.0.1",
   "description": "Master Electron Course Code",
   "main": "main.js",
   "scripts": {
@@ -36,18 +36,22 @@
       ]
     }
   },
-  "repository": "https://github.com/stackacademytv/master-electron",
+  "repository": "https://github.com/Nitingadhiya/electron-twork-app",
   "keywords": [
     "Electron",
-    "Master Electron",
-    "demo"
+    "Twork"
   ],
-  "author": "GitHub, Nitingadhiya",
+  "author": "GitHub, Nitingadhiya - Twork",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^5.0.10",
     "electron-builder": "^22.3.2",
     "nodemon": "^1.19.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "electron-log": "^4.0.4",
+    "electron-updater": "^4.2.0",
+    "jquery": "^3.4.1",
+    "query-string": "^6.10.1"
+  }
 }
