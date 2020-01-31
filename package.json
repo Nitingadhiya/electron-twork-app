@@ -1,6 +1,6 @@
 {
   "name": "Twork",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Master Electron Course Code",
   "main": "main.js",
   "scripts": {

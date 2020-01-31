@@ -14,8 +14,8 @@ function createWindow() {
   });
 
   // Load index.html into the new BrowserWindow
-  mainWindow.loadFile("index.html");
-  //mainWindow.loadURL("https://app.twork.io/login");
+  //mainWindow.loadFile("index.html");
+  mainWindow.loadURL("https://app.twork.io/login");
 
   // Open DevTools - Remove for PRODUCTION!
   //mainWindow.webContents.openDevTools();
