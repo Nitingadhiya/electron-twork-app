@@ -1,9 +1,33 @@
 // Modules
-const { app, BrowserWindow, Notification } = require("electron");
+const { app, BrowserWindow, Notification, TouchBar } = require("electron");
+const path = require("path");
+const url = require("url");
 const updater = require("./updater");
+const { TouchBarLabel, TouchBarButton, TouchBarSpacer } = TouchBar;
+require("./menu/mainmenu");
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
+
+// Reload button
+const reload = new TouchBarButton({
+  label: "Reload",
+  backgroundColor: "#FFD700",
+  icon: path.join(__dirname, "trayTemplate@2x.png"),
+  iconPosition: "left",
+  click: () => {
+    mainWindow.reload();
+  }
+});
+const appName = new TouchBarButton({
+  label: "Welcome to Twork",
+  backgroundColor: "#7851A9",
+  icon: path.join(__dirname, "icon.png"),
+  iconPosition: "left"
+});
+const touchBar = new TouchBar({
+  items: [appName, new TouchBarSpacer({ size: "flexible" }), reload]
+});
 
 // Create a new BrowserWindow when `app` is ready
 function createWindow() {
@@ -17,6 +41,16 @@ function createWindow() {
   //mainWindow.loadFile("index.html");
   mainWindow.loadURL("https://app.twork.io/login");
 
+  // mainWindow.loadURL(
+  //   url.format({
+  //     pathname: path.join(__dirname, "https://app.twork.io/login"),
+  //     //protocol: "file",
+  //     slashes: true
+  //   })
+  // );
+  setTimeout(() => {
+    mainWindow.setTouchBar(touchBar);
+  }, 2000);
   // Open DevTools - Remove for PRODUCTION!
   //mainWindow.webContents.openDevTools();
 
@@ -29,14 +63,14 @@ function createWindow() {
   global.mainWindow = mainWindow;
 
   //Notification
-  setTimeout(() => {
-    const notification = new Notification({
-      title: "Twork",
-      body: "Welcome to Twork app"
-      //icon: `icon.png`
-    });
-    notification.show();
-  }, 2000);
+  // setTimeout(() => {
+  //   const notification = new Notification({
+  //     title: "Twork",
+  //     body: "Welcome to Twork app"
+  //     //icon: `icon.png`
+  //   });
+  //   notification.show();
+  // }, 2000);
   // Listen for window being closed
   mainWindow.on("closed", () => {
     mainWindow = null;

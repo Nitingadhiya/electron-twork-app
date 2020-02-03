@@ -1,7 +1,7 @@
 {
   "name": "Twork",
   "version": "1.0.2",
-  "description": "Master Electron Course Code",
+  "description": "Twork Electron",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -17,8 +17,13 @@
     "directories": {
       "buildResources": "."
     },
+    "afterSign": "scripts/notarize.js",
     "mac": {
       "category": "public.app-category.productivity",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
       "publish": [
         "github"
       ]
@@ -47,6 +52,7 @@
   "devDependencies": {
     "electron": "^5.0.10",
     "electron-builder": "^22.3.2",
+    "electron-notarize": "^0.2.1",
     "nodemon": "^1.19.2"
   },
   "dependencies": {
