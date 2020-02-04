@@ -43,14 +43,14 @@ function createWindow() {
 
   // mainWindow.loadURL(
   //   url.format({
-  //     pathname: path.join(__dirname, "https://app.twork.io/login"),
-  //     //protocol: "file",
+  //     pathname: path.join(__dirname, "index.html"),
+  //     protocol: "file",
   //     slashes: true
   //   })
   // );
   setTimeout(() => {
     mainWindow.setTouchBar(touchBar);
-  }, 2000);
+  }, 300);
   // Open DevTools - Remove for PRODUCTION!
   //mainWindow.webContents.openDevTools();
 

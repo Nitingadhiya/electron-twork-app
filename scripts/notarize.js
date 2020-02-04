@@ -22,7 +22,7 @@ module.exports = async function(params) {
     throw new Error(`Cannot find application at: ${appPath}`);
   }
 
-  //console.log(`Notarizing ${appId} found at ${appPath}`);
+  console.log(`Notarizing ${appId} found at ${appPath}`);
   //console.log(process.env.APPLE_ID, "env ID");
   //console.log(process.env.APPLE_ID_PASS, "env password");
   try {

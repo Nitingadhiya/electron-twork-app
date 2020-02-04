@@ -1,6 +1,6 @@
 {
   "name": "Twork",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Twork Electron",
   "main": "main.js",
   "scripts": {
@@ -27,6 +27,9 @@
       "publish": [
         "github"
       ]
+    },
+    "dmg": {
+      "sign": false
     },
     "win": {
       "certificateFile": "private/electron-twork-app.p12",
