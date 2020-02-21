@@ -1,5 +1,11 @@
 // Modules
-const { app, BrowserWindow, Notification, TouchBar } = require("electron");
+const {
+  app,
+  BrowserWindow,
+  Notification,
+  TouchBar,
+  shell
+} = require("electron");
 const path = require("path");
 const url = require("url");
 const updater = require("./updater");
@@ -37,9 +43,14 @@ function createWindow() {
     webPreferences: { nodeIntegration: true }
   });
 
+  mainWindow.webContents.on("new-window", function(event, url) {
+    event.preventDefault();
+    shell.openExternal(url);
+  });
+
   // Load index.html into the new BrowserWindow
   //mainWindow.loadFile("index.html");
-  mainWindow.loadURL("https://app.twork.io/login");
+  mainWindow.loadURL("https://app.twork.io");
 
   // mainWindow.loadURL(
   //   url.format({

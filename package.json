@@ -1,6 +1,6 @@
 {
   "name": "Twork",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Twork Electron",
   "main": "main.js",
   "scripts": {
@@ -32,11 +32,12 @@
       "sign": false
     },
     "win": {
-      "certificateFile": "private/electron-twork-app.p12",
-      "verifyUpdateCodeSignature": false,
+      "certificateFile": "private/electront.p12",
+      "verifyUpdateCodeSignature": true,
       "publish": [
         "github"
-      ]
+      ],
+      "publisherName": "Twork"
     },
     "linux": {
       "category": "Network",
@@ -50,7 +51,7 @@
     "Electron",
     "Twork"
   ],
-  "author": "GitHub, Nitingadhiya - Twork",
+  "author": "Twork Group",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^5.0.10",

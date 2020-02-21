@@ -18,9 +18,9 @@ codesign -f -s "Developer ID Application: Name (Id)" --entitlements path/to/enti
 
 codesign -s "Developer ID Application: Name (Id)" app.dmg --options runtime
 
-xcrun altool --notarize-app -f app.dmg --primary-bundle-id com.electron.twork -u nitin@twork.group -p "password"
+xcrun altool --notarize-app -f app.dmg --primary-bundle-id com.electron.twork -u {{userId}} -p "password"
 
-xcrun altool --notarization-info {{token}} -u nitin@twork.group -p "password"
+xcrun altool --notarization-info {{token}} -u {{userId}} -p "password"
 
 xcrun stapler staple app.dmg
 

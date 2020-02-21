@@ -11,10 +11,10 @@ autoUpdater.autoDownload = false;
 
 // Check for updates
 exports.check = () => {
+  //autoUpdater.logger.info("Check download", autoUpdater.getFeedURL());
   // Start update check
   autoUpdater.checkForUpdates();
   let downloadProgress = 0;
-
   // Listen for download (update) found
   autoUpdater.on("update-available", () => {
     // Track progress percent
