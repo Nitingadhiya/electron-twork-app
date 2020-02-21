@@ -1,6 +1,6 @@
 {
   "name": "Twork",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Twork Electron",
   "main": "main.js",
   "scripts": {
@@ -17,6 +17,7 @@
     "directories": {
       "buildResources": "."
     },
+    "afterSign": "scripts/notarize.js",
     "mac": {
       "category": "public.app-category.productivity",
       "hardenedRuntime": true,

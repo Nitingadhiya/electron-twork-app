@@ -29,3 +29,12 @@ xcrun stapler validate app.dmg
 xattr -w com.electron.twork app.app
 
 https://stackoverflow.com/questions/53112078/how-to-upload-dmg-file-for-notarization-in-xcode
+
+For Force Update features:
+Go to dist directory >>
+open the file
+
+- win ==> latest.yml
+- mac ==> latest-mac.yml
+- linux ==> latest-linux.yml
+  Changes : Add "force: true" root level
