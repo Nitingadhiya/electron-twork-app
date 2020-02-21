@@ -2,6 +2,11 @@
 const { dialog, BrowserWindow, ipcMain } = require("electron");
 const { autoUpdater } = require("electron-updater");
 
+const os = require("os");
+const appVersion = require("./package.json").version;
+const platform = `${os.platform()}_${os.arch()}`;
+const http = require("http");
+
 // // Enable logging
 autoUpdater.logger = require("electron-log");
 autoUpdater.logger.transports.file.level = "info";
@@ -11,7 +16,26 @@ autoUpdater.autoDownload = false;
 
 // Check for updates
 exports.check = () => {
-  //autoUpdater.logger.info("Check download", autoUpdater.getFeedURL());
+  //autoUpdater.logger.info("autoUpdater.getFeedURL()");
+  var request = http.get(
+    "http://teamtreehouse.com/" + "username" + ".json",
+    function(response) {
+      var body = "";
+      response.on("data", function(chunk) {
+        body += chunk;
+      });
+      response.on("end", function() {
+        console.log(response.statusCode);
+        if (response.statusCode === 200) {
+        }
+      });
+    }
+  );
+
+  autoUpdater.logger.info(appVersion);
+
+  return;
+
   // Start update check
   autoUpdater.checkForUpdates();
   let downloadProgress = 0;
