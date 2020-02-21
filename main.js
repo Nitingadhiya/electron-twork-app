@@ -63,11 +63,11 @@ function createWindow() {
     mainWindow.setTouchBar(touchBar);
   }, 300);
   // Open DevTools - Remove for PRODUCTION!
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
 
   //Add for PRODUCTION!
   mainWindow.webContents.on("devtools-opened", () => {
-    //mainWindow.webContents.closeDevTools();
+    mainWindow.webContents.closeDevTools();
   });
 
   setTimeout(updater.check, 2000);
