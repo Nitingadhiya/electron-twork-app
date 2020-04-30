@@ -62,7 +62,7 @@
   "dependencies": {
     "electron-log": "^4.0.4",
     "electron-updater": "^4.2.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "query-string": "^6.10.1"
   }
 }
