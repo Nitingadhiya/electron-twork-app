@@ -54,7 +54,7 @@
   "author": "Twork Group - Nitin Gadhiya",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^5.0.10",
+    "electron": "^18.3.7",
     "electron-builder": "^22.3.2",
     "electron-notarize": "^0.2.1",
     "nodemon": "^1.19.2"
